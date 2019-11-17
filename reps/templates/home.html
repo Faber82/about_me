@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<h1>Maciej Faber</h1>
+<style>
+    img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 400px;
+  margin-right: 50px;
+}
+footer {
+  position: realtive;
+  width: 80%;
+  margin-top: 50px;
+}
+</style>
+<img src="static/static/img/portrait.png" align="right" alt="" width="100%">
+<div class="row">
+	<div "class="col-md-10">
+		<div style="background-color:rgba(255,255,255,0.7);" class="card">
+ 		 <div  class="card-body" )>
+    		    Hi, I'm... well my name is just above. Here's couple of words about me. I'm an Environmental engineer. I gathered quite an experience in that field, but lately I realised that this is not the career path I want to follow anymore. I've decided to learn writting code. About a half year ago, a friend of mine showed me several pages that offered great help. Especially Codecademy had it organised really good. After finishing some courses I've started practising on Codewars and it was also great excercise. Right now I'm making my first apps. My goal is to start a job as a junior web developer. This very page is made exclusively for finding a job. 
+ 		 </div>
+		</div>
+	</div>
+</div>
+<div class="card" style="width: 400px; background-color:rgba(255,255,255,0.7); margin-right: 10px">
+<img src="static/static/img/contact.jpg" align="right" alt="" width="100%">
+  <div card-body>
+    <h5 class="card-title">Contact</h5>
+    <p class="card-text">Tel: +48 518 180 235</p>
+    <p class="card-text">e-mail: maciej.faber@gmail.com</p>
+  </div>
+</div>
+<footer>
+<div style="position: static;">
+<h2>Projects</h2>
+<div class="row">
+    <div class="col-md-8">
+        <div style="background-color:rgba(255,255,255,0.7);"class="card">
+         <div class="card-body">
+          <p>Below I'll be placing links for my recent projects. You can see one or two of them already, but hopefully there will be more soon.</p>
+         </div>
+        </div>
+    </div>
+</div>
+<div class="row" >
+{% for repo in object_list %}
+    <div class="col-md-4" >
+        <div style="background-color:rgba(255,255,255,0.7);"class="card mb-3">
+            <div class="card-body" >
+                <h5 class="card-title">{{ repo.title }}</h5>
+                <a href={{repo.repository}}
+                    <button type="button" class="btn btn-dark">Repository link</button>
+                </a>
+                <a href="{% url 'repository_detail' repo.pk%}"
+                   <button type="button" class="btn btn-outline-secondary">Read more</button>
+
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  </div> 
+</div>
+</footer>
+{% endblock %}
